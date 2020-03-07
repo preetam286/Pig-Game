@@ -9,4 +9,6 @@ GAME RULES:
 
 */
 
-let name = 56;
+let name = 'Preetam';
+let num = 7;
+let name = 35;
