@@ -8,7 +8,3 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-
-let name = 'Preetam';
-let num = 7;
-let name = 35;
