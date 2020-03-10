@@ -13,6 +13,7 @@ let currentScore = 0;
 let diceNum = 0;
 let x = document.querySelector('.dice');
 x.style.display = "none";
+
 document.querySelector('.btn-roll').addEventListener('click',function(){
     diceNum = Math.floor(Math.random() * 6 + 1);
     x.style.display = 'block';
@@ -29,3 +30,5 @@ document.querySelector('.btn-roll').addEventListener('click',function(){
         document.getElementById('current-' + activePlayer).textContent = currentScore;
     }
 });
+
+let test;
