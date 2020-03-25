@@ -3,11 +3,14 @@ init();
 document.querySelector('.btn-roll').addEventListener('click', roll);
 document.querySelector('.btn-hold').addEventListener('click', hold);
 
-function nextPlayer()
+function init()
 {
+    activePlayer = 0;
     currentScore = 0;
-    document.getElementById('current-' + activePlayer).textContent = currentScore;
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    scores = [0,0];
+    diceNum = 0;
+    x = document.querySelector('.dice');
+    x.style.display = "none";
 }
 
 function roll()
@@ -35,12 +38,9 @@ function hold(){
     nextPlayer();
 }
 
-function init()
+function nextPlayer()
 {
-    activePlayer = 0;
     currentScore = 0;
-    scores = [0,0];
-    diceNum = 0;
-    x = document.querySelector('.dice');
-    x.style.display = "none";
+    document.getElementById('current-' + activePlayer).textContent = currentScore;
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 }
