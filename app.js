@@ -44,3 +44,4 @@ function init()
     x = document.querySelector('.dice');
     x.style.display = "none";
 }
+hello TextDecoderStream;
