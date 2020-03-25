@@ -1,23 +1,20 @@
-/*
-GAME RULES:
+let activePlayer = 0, currentScore, scores, diceNum, x;
+init();
+document.querySelector('.btn-roll').addEventListener('click', roll);
+document.querySelector('.btn-hold').addEventListener('click', hold);
 
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+function nextPlayer()
+{
+    currentScore = 0;
+    document.getElementById('current-' + activePlayer).textContent = currentScore;
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+}
 
-*/
-let activePlayer = 0;
-let currentScore = 0;
-let diceNum = 0;
-let x = document.querySelector('.dice');
-x.style.display = "none";
-
-document.querySelector('.btn-roll').addEventListener('click',function(){
+function roll()
+{
     diceNum = Math.floor(Math.random() * 6 + 1);
-    x.style.display = 'block';
-    console.log(diceNum);
+    let x = document.querySelector('.dice');
+    x.style.display = 'block'
     x.src = 'img/dice-' + diceNum + '.png';
     if(diceNum!==1)
     {
@@ -26,9 +23,24 @@ document.querySelector('.btn-roll').addEventListener('click',function(){
     }
     else
     {
-        currentScore = 0;
-        document.getElementById('current-' + activePlayer).textContent = currentScore;
+        nextPlayer();
     }
-});
+}
 
-let test;
+function hold(){
+    scores[activePlayer]+= currentScore;
+    document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+    x = document.querySelector('.dice');
+    x.style.display = "none";
+    nextPlayer();
+}
+
+function init()
+{
+    activePlayer = 0;
+    currentScore = 0;
+    scores = [0,0];
+    diceNum = 0;
+    x = document.querySelector('.dice');
+    x.style.display = "none";
+}
