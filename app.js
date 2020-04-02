@@ -53,7 +53,7 @@ function hold()
         document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
         x = document.querySelector('.dice');
         x.style.display = "none";
-        if(scores[activePlayer] >= 10)
+        if(scores[activePlayer] >= 100)
         {
             document.getElementById('name-' + activePlayer).innerHTML = "WINNER!";
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
